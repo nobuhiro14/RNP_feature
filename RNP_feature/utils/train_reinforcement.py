@@ -144,7 +144,7 @@ def train_reinforcement(model,
             assert tmp.shape[0] == 128 and tmp.shape[2] == 1, "invalid shape  {0}   ".format(tmp.shape)
             assert len(xlen_t) == 128 , "invalid shape xlen {0}    {1}".format(len(xlen_t), type(xlen_t))
             assert len(xlen_tp1) == 128 , "invalid shape xlen {0}    {1}".format(len(xlen_tp1), type(xlen_tp1))
-            q_values = model.Agent(tmp,xlen_t)
+            q_values = model.Agent(tmp)
             q_values = q_values.to("cpu")
             act_t  =act_t.to(torch.int64)
             q_values = q_values.squeeze()
