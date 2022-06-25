@@ -152,7 +152,7 @@ def train_reinforcement(model,
             q_s_a = q_s_a.squeeze()
 
             tmp = obs_tp1.to(device)
-            q_tp1_values = Q_target(tmp,xlen_tp1).detach()
+            q_tp1_values = Q_target(tmp).detach()
             q_tp1_values = q_tp1_values.to("cpu")
             q_tp1_values.squeeze()
             q_s_a_prime, a_prime = q_tp1_values.max(-1)
