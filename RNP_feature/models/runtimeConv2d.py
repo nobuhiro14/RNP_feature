@@ -57,7 +57,7 @@ class DynaConv2d(_ConvNd):
     def forward(self, input: Tensor, action :Tensor,device="cuda") -> Tensor:        
         bt = input.shape[0]
         H,W = self.calc_shape(input.shape[2],input.shape[3])
-        output = torch.empty((bt,self.out_channels,H,W),device="cuda",requires_grad=True)
+        output = torch.empty((bt,self.out_channels,H,W),device="cuda")
         for i in range(bt):
             in_bt = torch.split(input[i],action[i],dim=0)[0].unsqueeze(0)
             #print(ch_in, in_bt.shape[1])
@@ -70,8 +70,8 @@ class DynaConv2d(_ConvNd):
     
 
     def calc_shape(self,H,W): 
-        H_prime = (H - self.kernel_size+2*self.padding)/self.stride  +1 
-        W_prime = (W - self.kernel_size+2*self.padding)/self.stride  +1
+        H_prime = (H - self.kernel_size[0]+2*self.padding[0])/self.stride[0]  +1 
+        W_prime = (W - self.kernel_size[0]+2*self.padding[0])/self.stride[0] +1
         return int(H_prime), int(W_prime)
 
                 

@@ -148,99 +148,99 @@ class base_model(nn.Module):
         action = self.Agent.Action(q_val)
         #acts = (action+1) * torch.div(self.channels[0], self.num_act, rounding_mode='floor')
         acts = (action+1) * torch.div(self.channels[0], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[1](x,acts)
+        x = self.convs[1](x,acts)
         x = self.relus[1](x)
         x = self.pools[0](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[1], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[2](x,acts)
+        x = self.convs[2](x,acts)
         x = self.relus[2](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[2], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[3](x,acts)
+        x = self.convs[3](x,acts)
         x = self.relus[3](x)
         x = self.pools[1](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[3], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[4](x,acts)
+        x = self.convs[4](x,acts)
         x = self.relus[4](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[4], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[5](x,acts)
+        x = self.convs[5](x,acts)
         x = self.relus[5](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[5], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[6](x,acts)
+        x = self.convs[6](x,acts)
         x = self.relus[6](x)
         x = self.pools[2](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[6], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[7](x,acts)
+        x = self.convs[7](x,acts)
         x = self.relus[7](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[7], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[8](x,acts)
+        x = self.convs[8](x,acts)
         x = self.relus[8](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[8], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[9](x,acts)
+        x = self.convs[9](x,acts)
         x = self.relus[9](x)
         x = self.pools[3](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[9], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[10](x,acts)
+        x = self.convs[10](x,acts)
         x = self.relus[10](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[10], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[11](x,acts)
+        x = self.convs[11](x,acts)
         x = self.relus[11](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[11], self.num_act, rounding_mode='floor')
-        x ,x_len= self.convs[12](x,acts)
+        x = self.convs[12](x,acts)
         x = self.relus[12](x)
         x = self.pools[4](x)
 
@@ -266,7 +266,7 @@ class base_model(nn.Module):
         x_len = [x.shape[1] for i in range(x.shape[0])]
         y = self._pre_encode(x)
 
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[0], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -277,13 +277,13 @@ class base_model(nn.Module):
         self.qvals[0] = q_val
 
 
-        x ,x_len= self.convs[1](x,acts)
+        x = self.convs[1](x,acts)
         x = self.relus[1](x)
         x = self.pools[0](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[1], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -293,12 +293,12 @@ class base_model(nn.Module):
         self.done[1] = 0
         self.qvals[1] = q_val
 
-        x ,x_len= self.convs[2](x,acts)
+        x = self.convs[2](x,acts)
         x = self.relus[2](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[2], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -308,13 +308,13 @@ class base_model(nn.Module):
         self.done[2] = 0
         self.qvals[2] = q_val
 
-        x ,x_len= self.convs[3](x,acts)
+        x = self.convs[3](x,acts)
         x = self.relus[3](x)
         x = self.pools[1](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[3], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -324,12 +324,12 @@ class base_model(nn.Module):
         self.done[3] = 0
         self.qvals[3] = q_val
 
-        x ,x_len= self.convs[4](x,acts)
+        x = self.convs[4](x,acts)
         x = self.relus[4](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[4], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -339,12 +339,12 @@ class base_model(nn.Module):
         self.done[4] = 0
         self.qvals[4] = q_val
 
-        x ,x_len= self.convs[5](x,acts)
+        x = self.convs[5](x,acts)
         x = self.relus[5](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[5], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -354,13 +354,13 @@ class base_model(nn.Module):
         self.done[5] = 0
         self.qvals[5] = q_val
 
-        x ,x_len= self.convs[6](x,acts)
+        x = self.convs[6](x,acts)
         x = self.relus[6](x)
         x = self.pools[2](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[6], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -370,12 +370,12 @@ class base_model(nn.Module):
         self.done[6] = 0
         self.qvals[6] = q_val
 
-        x ,x_len= self.convs[7](x,acts)
+        x = self.convs[7](x,acts)
         x = self.relus[7](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[7], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -385,12 +385,12 @@ class base_model(nn.Module):
         self.done[7] = 0
         self.qvals[7] = q_val
 
-        x ,x_len= self.convs[8](x,acts)
+        x = self.convs[8](x,acts)
         x = self.relus[8](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[8], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -400,13 +400,13 @@ class base_model(nn.Module):
         self.done[8] = 0
         self.qvals[8] = q_val
 
-        x ,x_len= self.convs[9](x,acts)
+        x = self.convs[9](x,acts)
         x = self.relus[9](x)
         x = self.pools[3](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[9], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -416,12 +416,12 @@ class base_model(nn.Module):
         self.done[9] = 0
         self.qvals[9] = q_val
 
-        x ,x_len= self.convs[10](x,acts)
+        x = self.convs[10](x,acts)
         x = self.relus[10](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[10], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -431,12 +431,12 @@ class base_model(nn.Module):
         self.done[10] = 0
         self.qvals[10] = q_val
 
-        x ,x_len= self.convs[11](x,acts)
+        x = self.convs[11](x,acts)
         x = self.relus[11](x)
         ## Agent action
         
         y = self._pre_encode(x)
-        q_val = self.Agent(y,x_len)
+        q_val = self.Agent(y)
         action = self.Agent.Action(q_val)
         acts = (action+1) * torch.div(self.channels[11], self.num_act, rounding_mode='floor')
         #get action for replay buffer
@@ -446,7 +446,7 @@ class base_model(nn.Module):
         self.done[11] = 1
         self.qvals[11] = q_val
 
-        x ,x_len= self.convs[12](x,acts)
+        x = self.convs[12](x,acts)
         x = self.relus[12](x)
         x = self.pools[4](x)
 
